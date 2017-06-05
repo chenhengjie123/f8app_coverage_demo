@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "Test app for istanbul middleware with react-native",
+  "dependencies": {
+      "express": "4.x",
+      "body-parser": "~1.4.3",
+      "istanbul-middleware": "*"
+  }
+}
