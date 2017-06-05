@@ -20,6 +20,10 @@ $ cd f8app && react-native run-ios
 
 启动后，等待约5秒，然后打开 <http://localhost:8889/coverage> 即可查看覆盖率报告。覆盖率报告每隔2秒会自动更新。
 
+# 添加覆盖率的关键步骤
+
+请查看 [React Native 代码覆盖率获取探索 (二)](https://testerhome.com/topics/8919)
+
 # 已知问题
 
 由于 middleware 默认识别相对路径，会造成查看具体文件行级别覆盖率时报类似如下的错误：
