@@ -1,0 +1,65 @@
+{
+  "name": "F8v2",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "babel-node ./server/server.js",
+    "import-data": "babel-node ./scripts/import-data-from-parse.js",
+    "update-schema": "babel-node ./server/schema/updateSchema.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "art": "~0.10.1",
+    "babel-cli": "~6.10.1",
+    "babel-relay-plugin": "~0.9.1",
+    "crc32": "~0.2.2",
+    "express": "~4.14.0",
+    "express-graphql": "~0.5.3",
+    "graphql-relay": "~0.4.2",
+    "moment": "~2.13.0",
+    "parse": "~1.8.2",
+    "parse-dashboard": "~1.0.8",
+    "parse-server": "~2.2.6",
+    "react": "~15.1.0",
+    "react-native": "0.28.0",
+    "react-native-code-push": "~1.12.2-beta",
+    "react-native-fbsdk": "^0.3.0",
+    "react-native-linear-gradient": "~1.5.0",
+    "react-native-push-notification": "frantic/react-native-push-notification#7142da7",
+    "react-native-send-intent": "~1.0.7",
+    "react-native-share": "frantic/react-native-share#674df947b3",
+    "react-redux": "~4.4.5",
+    "react-relay": "~0.9.1",
+    "react-timer-mixin": "~0.13.3",
+    "redux": "~3.5.2",
+    "redux-logger": "~2.6.1",
+    "redux-persist": "~3.2.2",
+    "redux-thunk": "~2.1.0",
+    "reselect": "~2.5.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "~6.1.0",
+    "babel-jest": "~13.0.0",
+    "babel-polyfill": "~6.9.1",
+    "eslint": "~2.13.1",
+    "eslint-plugin-react": "~5.2.2",
+    "jest-cli": "~13.0.0"
+  },
+  "jest": {
+    "haste": {
+      "defaultPlatform": "ios",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "providesModuleNodeModules": [
+        "react-native"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=5.0",
+    "npm": ">=3.0"
+  }
+}
