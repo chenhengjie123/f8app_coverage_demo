@@ -1,6 +1,5 @@
 var express = require('express'),
     im = require('istanbul-middleware'),
-    publicDir = path.resolve(__dirname, 'js'),
     isCoverageEnabled = true,
     app = express(),
     port = 8889;
