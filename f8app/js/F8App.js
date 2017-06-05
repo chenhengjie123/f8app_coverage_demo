@@ -21,90 +21,12 @@
  *
  * @providesModule F8App
  * @flow
- */
-
-'use strict';
-
-var React = require('React');
-var AppState = require('AppState');
-var LoginScreen = require('./login/LoginScreen');
-var PushNotificationsController = require('./PushNotificationsController');
-var StyleSheet = require('StyleSheet');
-var F8Navigator = require('F8Navigator');
-var CodePush = require('react-native-code-push');
-var View = require('View');
-var StatusBar = require('StatusBar');
-var {
-  loadConfig,
-  loadMaps,
-  loadNotifications,
-  loadSessions,
-  loadFriendsSchedules,
-  loadSurveys,
-} = require('./actions');
-var { updateInstallation } = require('./actions/installation');
-var { connect } = require('react-redux');
-
-var { version } = require('./env.js');
-
-var F8App = React.createClass({
-  componentDidMount: function() {
-    AppState.addEventListener('change', this.handleAppStateChange);
-
-    // TODO: Make this list smaller, we basically download the whole internet
-    this.props.dispatch(loadNotifications());
-    this.props.dispatch(loadMaps());
-    this.props.dispatch(loadConfig());
-    this.props.dispatch(loadSessions());
-    this.props.dispatch(loadFriendsSchedules());
-    this.props.dispatch(loadSurveys());
-
-    updateInstallation({version});
-    CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
-  },
-
-  componentWillUnmount: function() {
-    AppState.removeEventListener('change', this.handleAppStateChange);
-  },
-
-  handleAppStateChange: function(appState) {
-    if (appState === 'active') {
-      this.props.dispatch(loadSessions());
-      this.props.dispatch(loadNotifications());
-      this.props.dispatch(loadSurveys());
-      CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
-    }
-  },
-
-  render: function() {
-    if (!this.props.isLoggedIn) {
-      return <LoginScreen />;
-    }
-    return (
-      <View style={styles.container}>
-        <StatusBar
-          translucent={true}
-          backgroundColor="rgba(0, 0, 0, 0.2)"
-          barStyle="light-content"
-         />
-        <F8Navigator />
-        <PushNotificationsController />
-      </View>
-    );
-  },
-
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-function select(store) {
-  return {
-    isLoggedIn: store.user.isLoggedIn || store.user.hasSkippedLogin,
-  };
-}
-
-module.exports = connect(select)(F8App);
+ */'use strict';var cov_29mnvrwpaa=function(){var path='F8App.js',hash='74cb05f6dca529f00b763cbdfab5bc02fa660c66',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'F8App.js',statementMap:{'0':{start:{line:28,column:12},end:{line:28,column:28}},'1':{start:{line:29,column:15},end:{line:29,column:34}},'2':{start:{line:30,column:18},end:{line:30,column:48}},'3':{start:{line:32,column:17},end:{line:32,column:38}},'4':{start:{line:33,column:18},end:{line:33,column:40}},'5':{start:{line:34,column:15},end:{line:34,column:48}},'6':{start:{line:35,column:11},end:{line:35,column:26}},'7':{start:{line:36,column:16},end:{line:36,column:36}},'8':{start:{line:44,column:4},end:{line:44,column:24}},'9':{start:{line:45,column:29},end:{line:45,column:62}},'10':{start:{line:46,column:18},end:{line:46,column:40}},'11':{start:{line:48,column:18},end:{line:48,column:37}},'12':{start:{line:50,column:12},end:{line:95,column:2}},'13':{start:{line:52,column:4},end:{line:52,column:67}},'14':{start:{line:55,column:4},end:{line:55,column:45}},'15':{start:{line:56,column:4},end:{line:56,column:36}},'16':{start:{line:57,column:4},end:{line:57,column:38}},'17':{start:{line:58,column:4},end:{line:58,column:40}},'18':{start:{line:59,column:4},end:{line:59,column:48}},'19':{start:{line:60,column:4},end:{line:60,column:39}},'20':{start:{line:62,column:4},end:{line:62,column:34}},'21':{start:{line:63,column:4},end:{line:63,column:70}},'22':{start:{line:67,column:4},end:{line:67,column:70}},'23':{start:{line:71,column:4},end:{line:76,column:5}},'24':{start:{line:72,column:6},end:{line:72,column:42}},'25':{start:{line:73,column:6},end:{line:73,column:47}},'26':{start:{line:74,column:6},end:{line:74,column:41}},'27':{start:{line:75,column:6},end:{line:75,column:72}},'28':{start:{line:83,column:4},end:{line:92,column:6}},'29':{start:{line:97,column:13},end:{line:101,column:2}},'30':{start:{line:104,column:2},end:{line:106,column:4}},'31':{start:{line:109,column:0},end:{line:109,column:40}}},fnMap:{'0':{name:'(anonymous_0)',decl:{start:{line:51,column:21},end:{line:51,column:22}},loc:{start:{line:51,column:32},end:{line:64,column:3}},line:51},'1':{name:'(anonymous_1)',decl:{start:{line:66,column:24},end:{line:66,column:25}},loc:{start:{line:66,column:35},end:{line:68,column:3}},line:66},'2':{name:'(anonymous_2)',decl:{start:{line:70,column:24},end:{line:70,column:25}},loc:{start:{line:70,column:43},end:{line:77,column:3}},line:70},'3':{name:'(anonymous_3)',decl:{start:{line:79,column:10},end:{line:79,column:11}},loc:{start:{line:79,column:21},end:{line:93,column:3}},line:79},'4':{name:'select',decl:{start:{line:103,column:9},end:{line:103,column:15}},loc:{start:{line:103,column:23},end:{line:107,column:1}},line:103}},branchMap:{'0':{loc:{start:{line:71,column:4},end:{line:76,column:5}},type:'if',locations:[{start:{line:71,column:4},end:{line:76,column:5}},{start:{line:71,column:4},end:{line:76,column:5}}],line:71},'1':{loc:{start:{line:105,column:16},end:{line:105,column:67}},type:'binary-expr',locations:[{start:{line:105,column:16},end:{line:105,column:37}},{start:{line:105,column:41},end:{line:105,column:67}}],line:105}},s:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0,'17':0,'18':0,'19':0,'20':0,'21':0,'22':0,'23':0,'24':0,'25':0,'26':0,'27':0,'28':0,'29':0,'30':0,'31':0},f:{'0':0,'1':0,'2':0,'3':0,'4':0},b:{'0':[0,0],'1':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var React=(++cov_29mnvrwpaa.s[0],require('React'));var AppState=(++cov_29mnvrwpaa.s[1],require('AppState'));var LoginScreen=(++cov_29mnvrwpaa.s[2],require('./login/LoginScreen'));//var PushNotificationsController = require('./PushNotificationsController');
+var StyleSheet=(++cov_29mnvrwpaa.s[3],require('StyleSheet'));var F8Navigator=(++cov_29mnvrwpaa.s[4],require('F8Navigator'));var CodePush=(++cov_29mnvrwpaa.s[5],require('react-native-code-push'));var View=(++cov_29mnvrwpaa.s[6],require('View'));var StatusBar=(++cov_29mnvrwpaa.s[7],require('StatusBar'));var{loadConfig,loadMaps,loadNotifications,loadSessions,loadFriendsSchedules,loadSurveys}=(++cov_29mnvrwpaa.s[8],require('./actions'));var{updateInstallation}=(++cov_29mnvrwpaa.s[9],require('./actions/installation'));var{connect}=(++cov_29mnvrwpaa.s[10],require('react-redux'));var{version}=(++cov_29mnvrwpaa.s[11],require('./env.js'));var F8App=(++cov_29mnvrwpaa.s[12],React.createClass({componentDidMount:function(){++cov_29mnvrwpaa.f[0];++cov_29mnvrwpaa.s[13];AppState.addEventListener('change',this.handleAppStateChange);// TODO: Make this list smaller, we basically download the whole internet
+++cov_29mnvrwpaa.s[14];this.props.dispatch(loadNotifications());++cov_29mnvrwpaa.s[15];this.props.dispatch(loadMaps());++cov_29mnvrwpaa.s[16];this.props.dispatch(loadConfig());++cov_29mnvrwpaa.s[17];this.props.dispatch(loadSessions());++cov_29mnvrwpaa.s[18];this.props.dispatch(loadFriendsSchedules());++cov_29mnvrwpaa.s[19];this.props.dispatch(loadSurveys());++cov_29mnvrwpaa.s[20];updateInstallation({version});++cov_29mnvrwpaa.s[21];CodePush.sync({installMode:CodePush.InstallMode.ON_NEXT_RESUME});},componentWillUnmount:function(){++cov_29mnvrwpaa.f[1];++cov_29mnvrwpaa.s[22];AppState.removeEventListener('change',this.handleAppStateChange);},handleAppStateChange:function(appState){++cov_29mnvrwpaa.f[2];++cov_29mnvrwpaa.s[23];if(appState==='active'){++cov_29mnvrwpaa.b[0][0];++cov_29mnvrwpaa.s[24];this.props.dispatch(loadSessions());++cov_29mnvrwpaa.s[25];this.props.dispatch(loadNotifications());++cov_29mnvrwpaa.s[26];this.props.dispatch(loadSurveys());++cov_29mnvrwpaa.s[27];CodePush.sync({installMode:CodePush.InstallMode.ON_NEXT_RESUME});}else{++cov_29mnvrwpaa.b[0][1];}},render:function(){++cov_29mnvrwpaa.f[3];++cov_29mnvrwpaa.s[28];//if (!this.props.isLoggedIn) {
+//  return <LoginScreen />;
+//}
+return<View style={styles.container}>
+        <StatusBar translucent={true}backgroundColor="rgba(0, 0, 0, 0.2)"barStyle="light-content"/>
+        <F8Navigator/>
+      </View>;}}));var styles=(++cov_29mnvrwpaa.s[29],StyleSheet.create({container:{flex:1}}));function select(store){++cov_29mnvrwpaa.f[4];++cov_29mnvrwpaa.s[30];return{isLoggedIn:(++cov_29mnvrwpaa.b[1][0],store.user.isLoggedIn)||(++cov_29mnvrwpaa.b[1][1],store.user.hasSkippedLogin)};}++cov_29mnvrwpaa.s[31];module.exports=connect(select)(F8App);

@@ -20,22 +20,4 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-
-'use strict';
-
-var { combineReducers } = require('redux');
-
-module.exports = combineReducers({
-  config: require('./config'),
-  notifications: require('./notifications'),
-  maps: require('./maps'),
-  sessions: require('./sessions'),
-  user: require('./user'),
-  schedule: require('./schedule'),
-  topics: require('./topics'),
-  filter: require('./filter'),
-  navigation: require('./navigation'),
-  friendsSchedules: require('./friendsSchedules'),
-  surveys: require('./surveys'),
-});
+ */'use strict';var cov_2gyoy9of6q=function(){var path='reducers/index.js',hash='94683ab9014be8bfcee5f901e016a458eb34f4b1',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'reducers/index.js',statementMap:{'0':{start:{line:27,column:26},end:{line:27,column:42}},'1':{start:{line:29,column:0},end:{line:41,column:3}}},fnMap:{},branchMap:{},s:{'0':0,'1':0},f:{},b:{},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var{combineReducers}=(++cov_2gyoy9of6q.s[0],require('redux'));++cov_2gyoy9of6q.s[1];module.exports=combineReducers({config:require('./config'),notifications:require('./notifications'),maps:require('./maps'),sessions:require('./sessions'),user:require('./user'),schedule:require('./schedule'),topics:require('./topics'),filter:require('./filter'),navigation:require('./navigation'),friendsSchedules:require('./friendsSchedules'),surveys:require('./surveys')});

@@ -20,13 +20,4 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-
-'use strict';
-
-module.exports = {
-  testMenuEnabled: true,
-  serverURL: 'http://localhost:8080',
-  version: 323,
-  fontFamily: undefined,
-};
+ */'use strict';var cov_nhuagpt34=function(){var path='env.js',hash='17512ccaca42b634bfad558147df0b1142f78d2a',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'env.js',statementMap:{'0':{start:{line:27,column:0},end:{line:32,column:2}}},fnMap:{},branchMap:{},s:{'0':0},f:{},b:{},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();++cov_nhuagpt34.s[0];module.exports={testMenuEnabled:true,serverURL:'http://localhost:8080',version:323,fontFamily:undefined};

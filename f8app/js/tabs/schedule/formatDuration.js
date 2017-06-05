@@ -20,38 +20,4 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-'use strict';
-
-const formatTime = require('./formatTime');
-
-function naivePlural(text: string, count: number): string {
-  if (count > 1) {
-    return text + 's';
-  }
-  return text;
-}
-
-function formatDuration(startMs: number, endMs: number): string {
-  let ms = endMs - startMs;
-  let minutes = ms / 1000 / 60;
-  let hours = Math.floor(minutes / 60);
-
-  if (hours > 2) {
-    return 'Until ' + formatTime(endMs).toLowerCase();
-  }
-
-  let durationText = '';
-  if (hours > 0) {
-    durationText = `${hours} ${naivePlural('hour', hours)} `;
-    minutes = minutes - hours * 60;
-  }
-
-  if (minutes > 0) {
-    durationText = `${durationText}${Math.ceil(minutes)} min`;
-  }
-
-  return durationText.trim();
-}
-
-module.exports = formatDuration;
+ */'use strict';var cov_rw0kfm2xr=function(){var path='tabs/schedule/formatDuration.js',hash='12a7897f12edb774287cbaf02a424e9fa83487f9',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'tabs/schedule/formatDuration.js',statementMap:{'0':{start:{line:26,column:19},end:{line:26,column:42}},'1':{start:{line:29,column:2},end:{line:31,column:3}},'2':{start:{line:30,column:4},end:{line:30,column:22}},'3':{start:{line:32,column:2},end:{line:32,column:14}},'4':{start:{line:36,column:11},end:{line:36,column:26}},'5':{start:{line:37,column:16},end:{line:37,column:30}},'6':{start:{line:38,column:14},end:{line:38,column:38}},'7':{start:{line:40,column:2},end:{line:42,column:3}},'8':{start:{line:41,column:4},end:{line:41,column:54}},'9':{start:{line:44,column:21},end:{line:44,column:23}},'10':{start:{line:45,column:2},end:{line:48,column:3}},'11':{start:{line:46,column:4},end:{line:46,column:61}},'12':{start:{line:47,column:4},end:{line:47,column:35}},'13':{start:{line:50,column:2},end:{line:52,column:3}},'14':{start:{line:51,column:4},end:{line:51,column:62}},'15':{start:{line:54,column:2},end:{line:54,column:29}},'16':{start:{line:57,column:0},end:{line:57,column:32}}},fnMap:{'0':{name:'naivePlural',decl:{start:{line:28,column:9},end:{line:28,column:20}},loc:{start:{line:28,column:58},end:{line:33,column:1}},line:28},'1':{name:'formatDuration',decl:{start:{line:35,column:9},end:{line:35,column:23}},loc:{start:{line:35,column:64},end:{line:55,column:1}},line:35}},branchMap:{'0':{loc:{start:{line:29,column:2},end:{line:31,column:3}},type:'if',locations:[{start:{line:29,column:2},end:{line:31,column:3}},{start:{line:29,column:2},end:{line:31,column:3}}],line:29},'1':{loc:{start:{line:40,column:2},end:{line:42,column:3}},type:'if',locations:[{start:{line:40,column:2},end:{line:42,column:3}},{start:{line:40,column:2},end:{line:42,column:3}}],line:40},'2':{loc:{start:{line:45,column:2},end:{line:48,column:3}},type:'if',locations:[{start:{line:45,column:2},end:{line:48,column:3}},{start:{line:45,column:2},end:{line:48,column:3}}],line:45},'3':{loc:{start:{line:50,column:2},end:{line:52,column:3}},type:'if',locations:[{start:{line:50,column:2},end:{line:52,column:3}},{start:{line:50,column:2},end:{line:52,column:3}}],line:50}},s:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0},f:{'0':0,'1':0},b:{'0':[0,0],'1':[0,0],'2':[0,0],'3':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();const formatTime=(++cov_rw0kfm2xr.s[0],require('./formatTime'));function naivePlural(text:string,count:number):string{++cov_rw0kfm2xr.f[0];++cov_rw0kfm2xr.s[1];if(count>1){++cov_rw0kfm2xr.b[0][0];++cov_rw0kfm2xr.s[2];return text+'s';}else{++cov_rw0kfm2xr.b[0][1];}++cov_rw0kfm2xr.s[3];return text;}function formatDuration(startMs:number,endMs:number):string{++cov_rw0kfm2xr.f[1];let ms=(++cov_rw0kfm2xr.s[4],endMs-startMs);let minutes=(++cov_rw0kfm2xr.s[5],ms/1000/60);let hours=(++cov_rw0kfm2xr.s[6],Math.floor(minutes/60));++cov_rw0kfm2xr.s[7];if(hours>2){++cov_rw0kfm2xr.b[1][0];++cov_rw0kfm2xr.s[8];return'Until '+formatTime(endMs).toLowerCase();}else{++cov_rw0kfm2xr.b[1][1];}let durationText=(++cov_rw0kfm2xr.s[9],'');++cov_rw0kfm2xr.s[10];if(hours>0){++cov_rw0kfm2xr.b[2][0];++cov_rw0kfm2xr.s[11];durationText=`${hours} ${naivePlural('hour',hours)} `;++cov_rw0kfm2xr.s[12];minutes=minutes-hours*60;}else{++cov_rw0kfm2xr.b[2][1];}++cov_rw0kfm2xr.s[13];if(minutes>0){++cov_rw0kfm2xr.b[3][0];++cov_rw0kfm2xr.s[14];durationText=`${durationText}${Math.ceil(minutes)} min`;}else{++cov_rw0kfm2xr.b[3][1];}++cov_rw0kfm2xr.s[15];return durationText.trim();}++cov_rw0kfm2xr.s[16];module.exports=formatDuration;

@@ -20,72 +20,9 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-'use strict';
-
-var F8Colors = require('F8Colors');
-var Image = require('Image');
-var React = require('React');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var View = require('View');
-
-var { connect } = require('react-redux');
-
-class FriendsUsingApp extends React.Component {
-  props: {
-    friends: Array<{id: string; name: string}>;
-  };
-
-  render() {
-    const {friends} = this.props;
-    if (friends.length === 0) {
-      return null;
-    }
-    const pictures = friends.slice(0, 3).map((friend) => (
-      <Image
-        key={friend.id}
-        source={{uri: `http://graph.facebook.com/${friend.id}/picture`}}
-        style={styles.profilePic}
-      />
-    ));
-    let text = `${friends.length} friends are sharing their schedules.`;
-    if (friends.length === 1) {
-      text = `${friends[0].name.split(' ')[0]} is sharing their schedule.`;
-    }
-    return (
-      <View style={styles.container}>
+ */'use strict';var cov_2901d086gf=function(){var path='tabs/schedule/FriendsUsingApp.js',hash='757d418d99d11d41ce5ed84101d3c762c166d883',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'tabs/schedule/FriendsUsingApp.js',statementMap:{'0':{start:{line:26,column:15},end:{line:26,column:34}},'1':{start:{line:27,column:12},end:{line:27,column:28}},'2':{start:{line:28,column:12},end:{line:28,column:28}},'3':{start:{line:29,column:17},end:{line:29,column:38}},'4':{start:{line:30,column:15},end:{line:30,column:32}},'5':{start:{line:31,column:11},end:{line:31,column:26}},'6':{start:{line:33,column:18},end:{line:33,column:40}},'7':{start:{line:41,column:22},end:{line:41,column:32}},'8':{start:{line:42,column:4},end:{line:44,column:5}},'9':{start:{line:43,column:6},end:{line:43,column:18}},'10':{start:{line:45,column:21},end:{line:51,column:6}},'11':{start:{line:46,column:6},end:{line:50,column:8}},'12':{start:{line:52,column:15},end:{line:52,column:71}},'13':{start:{line:53,column:4},end:{line:55,column:5}},'14':{start:{line:54,column:6},end:{line:54,column:75}},'15':{start:{line:56,column:4},end:{line:63,column:6}},'16':{start:{line:67,column:13},end:{line:83,column:2}},'17':{start:{line:86,column:2},end:{line:88,column:4}},'18':{start:{line:91,column:0},end:{line:91,column:50}}},fnMap:{'0':{name:'(anonymous_0)',decl:{start:{line:40,column:2},end:{line:40,column:3}},loc:{start:{line:40,column:11},end:{line:64,column:3}},line:40},'1':{name:'(anonymous_1)',decl:{start:{line:45,column:45},end:{line:45,column:46}},loc:{start:{line:46,column:6},end:{line:50,column:8}},line:46},'2':{name:'select',decl:{start:{line:85,column:9},end:{line:85,column:15}},loc:{start:{line:85,column:23},end:{line:89,column:1}},line:85}},branchMap:{'0':{loc:{start:{line:42,column:4},end:{line:44,column:5}},type:'if',locations:[{start:{line:42,column:4},end:{line:44,column:5}},{start:{line:42,column:4},end:{line:44,column:5}}],line:42},'1':{loc:{start:{line:53,column:4},end:{line:55,column:5}},type:'if',locations:[{start:{line:53,column:4},end:{line:55,column:5}},{start:{line:53,column:4},end:{line:55,column:5}}],line:53}},s:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0,'17':0,'18':0},f:{'0':0,'1':0,'2':0},b:{'0':[0,0],'1':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var F8Colors=(++cov_2901d086gf.s[0],require('F8Colors'));var Image=(++cov_2901d086gf.s[1],require('Image'));var React=(++cov_2901d086gf.s[2],require('React'));var StyleSheet=(++cov_2901d086gf.s[3],require('StyleSheet'));var{Text}=(++cov_2901d086gf.s[4],require('F8Text'));var View=(++cov_2901d086gf.s[5],require('View'));var{connect}=(++cov_2901d086gf.s[6],require('react-redux'));class FriendsUsingApp extends React.Component{props:{friends:Array<{id:string;name:string;}>};render(){++cov_2901d086gf.f[0];const{friends}=(++cov_2901d086gf.s[7],this.props);++cov_2901d086gf.s[8];if(friends.length===0){++cov_2901d086gf.b[0][0];++cov_2901d086gf.s[9];return null;}else{++cov_2901d086gf.b[0][1];}const pictures=(++cov_2901d086gf.s[10],friends.slice(0,3).map(friend=>{++cov_2901d086gf.f[1];++cov_2901d086gf.s[11];return<Image key={friend.id}source={{uri:`http://graph.facebook.com/${friend.id}/picture`}}style={styles.profilePic}/>;}));let text=(++cov_2901d086gf.s[12],`${friends.length} friends are sharing their schedules.`);++cov_2901d086gf.s[13];if(friends.length===1){++cov_2901d086gf.b[1][0];++cov_2901d086gf.s[14];text=`${friends[0].name.split(' ')[0]} is sharing their schedule.`;}else{++cov_2901d086gf.b[1][1];}++cov_2901d086gf.s[15];return<View style={styles.container}>
         {pictures}
         <Text style={styles.text}>
           {text}
         </Text>
-      </View>
-    );
-  }
-}
-
-var styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  profilePic: {
-    width: 20,
-    height: 20,
-    marginRight: -3,
-    borderRadius: 10,
-  },
-  text: {
-    fontSize: 12,
-    marginLeft: 13,
-    color: F8Colors.lightText,
-  },
-});
-
-function select(store) {
-  return {
-    friends: store.friendsSchedules,
-  };
-}
-
-module.exports = connect(select)(FriendsUsingApp);
+      </View>;}}var styles=(++cov_2901d086gf.s[16],StyleSheet.create({container:{flexDirection:'row',alignItems:'center'},profilePic:{width:20,height:20,marginRight:-3,borderRadius:10},text:{fontSize:12,marginLeft:13,color:F8Colors.lightText}}));function select(store){++cov_2901d086gf.f[2];++cov_2901d086gf.s[17];return{friends:store.friendsSchedules};}++cov_2901d086gf.s[18];module.exports=connect(select)(FriendsUsingApp);

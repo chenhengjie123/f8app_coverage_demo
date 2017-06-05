@@ -24,73 +24,9 @@
  *
  * @flow
  * @providesModule FacebookSDK
- */
-'use strict';
-
-var {
-  LoginManager,
-  AccessToken,
-  GraphRequest,
-  GraphRequestManager,
-} = require('react-native-fbsdk');
-
-const emptyFunction = () => {};
-const mapObject = require('fbjs/lib/mapObject');
-
-type AuthResponse = {
-  userID: string;
-  accessToken: string;
-  expiresIn: number;
-};
-type LoginOptions = { scope: string };
-type LoginCallback = (result: {authResponse?: AuthResponse, error?: Error}) => void;
-
-let _authResponse: ?AuthResponse = null;
-
-async function loginWithFacebookSDK(options: LoginOptions): Promise<AuthResponse> {
-  const scope = options.scope || 'public_profile';
-  const permissions = scope.split(',');
-
-  const loginResult = await LoginManager.logInWithReadPermissions(permissions);
-  if (loginResult.isCancelled) {
-    throw new Error('Canceled by user');
-  }
-
-  const accessToken = await AccessToken.getCurrentAccessToken();
-  if (!accessToken) {
-    throw new Error('No access token');
-  }
-
-  _authResponse = {
-    userID: accessToken.userID, // FIXME: RNFBSDK bug: userId -> userID
-    accessToken: accessToken.accessToken,
-    expiresIn: Math.round((accessToken.expirationTime - Date.now()) / 1000),
-  };
-  return _authResponse;
-}
-
-var FacebookSDK = {
-  init() {
-    // This is needed by Parse
-    window.FB = FacebookSDK;
-  },
-
-  login(callback: LoginCallback, options: LoginOptions) {
-    loginWithFacebookSDK(options).then(
-      (authResponse) => callback({authResponse}),
-      (error) => callback({error})
-    );
-  },
-
-  getAuthResponse(): ?AuthResponse {
-    return _authResponse;
-  },
-
-  logout() {
-    LoginManager.logOut();
-  },
-
-  /**
+ */'use strict';var cov_2e3xqkaxni=function(){var path='FacebookSDK.js',hash='c80446c7e1ed4dcc71bcebfd7fa84bb300faab20',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'FacebookSDK.js',statementMap:{'0':{start:{line:35,column:4},end:{line:35,column:33}},'1':{start:{line:37,column:22},end:{line:37,column:30}},'2':{start:{line:38,column:18},end:{line:38,column:47}},'3':{start:{line:48,column:35},end:{line:48,column:39}},'4':{start:{line:51,column:16},end:{line:51,column:49}},'5':{start:{line:52,column:22},end:{line:52,column:38}},'6':{start:{line:54,column:22},end:{line:54,column:78}},'7':{start:{line:55,column:2},end:{line:57,column:3}},'8':{start:{line:56,column:4},end:{line:56,column:40}},'9':{start:{line:59,column:22},end:{line:59,column:63}},'10':{start:{line:60,column:2},end:{line:62,column:3}},'11':{start:{line:61,column:4},end:{line:61,column:39}},'12':{start:{line:64,column:2},end:{line:68,column:4}},'13':{start:{line:69,column:2},end:{line:69,column:23}},'14':{start:{line:72,column:18},end:{line:146,column:1}},'15':{start:{line:75,column:4},end:{line:75,column:28}},'16':{start:{line:79,column:4},end:{line:82,column:6}},'17':{start:{line:80,column:24},end:{line:80,column:48}},'18':{start:{line:81,column:17},end:{line:81,column:34}},'19':{start:{line:86,column:4},end:{line:86,column:25}},'20':{start:{line:90,column:4},end:{line:90,column:26}},'21':{start:{line:117,column:22},end:{line:117,column:24}},'22':{start:{line:118,column:4},end:{line:118,column:60}},'23':{start:{line:118,column:28},end:{line:118,column:56}},'24':{start:{line:120,column:23},end:{line:120,column:67}},'25':{start:{line:121,column:19},end:{line:121,column:44}},'26':{start:{line:122,column:21},end:{line:122,column:59}},'27':{start:{line:127,column:23},end:{line:127,column:70}},'28':{start:{line:127,column:53},end:{line:127,column:68}},'29':{start:{line:131,column:6},end:{line:137,column:7}},'30':{start:{line:132,column:8},end:{line:136,column:9}},'31':{start:{line:133,column:10},end:{line:133,column:38}},'32':{start:{line:135,column:10},end:{line:135,column:20}},'33':{start:{line:139,column:19},end:{line:139,column:43}},'34':{start:{line:140,column:6},end:{line:140,column:21}},'35':{start:{line:143,column:20},end:{line:143,column:85}},'36':{start:{line:144,column:4},end:{line:144,column:58}},'37':{start:{line:148,column:0},end:{line:148,column:29}}},fnMap:{'0':{name:'(anonymous_0)',decl:{start:{line:37,column:22},end:{line:37,column:23}},loc:{start:{line:37,column:28},end:{line:37,column:30}},line:37},'1':{name:'loginWithFacebookSDK',decl:{start:{line:50,column:15},end:{line:50,column:35}},loc:{start:{line:50,column:82},end:{line:70,column:1}},line:50},'2':{name:'(anonymous_2)',decl:{start:{line:80,column:6},end:{line:80,column:7}},loc:{start:{line:80,column:24},end:{line:80,column:48}},line:80},'3':{name:'(anonymous_3)',decl:{start:{line:81,column:6},end:{line:81,column:7}},loc:{start:{line:81,column:17},end:{line:81,column:34}},line:81},'4':{name:'(anonymous_4)',decl:{start:{line:116,column:7},end:{line:116,column:8}},loc:{start:{line:116,column:53},end:{line:145,column:3}},line:116},'5':{name:'(anonymous_5)',decl:{start:{line:118,column:17},end:{line:118,column:18}},loc:{start:{line:118,column:26},end:{line:118,column:58}},line:118},'6':{name:'(anonymous_6)',decl:{start:{line:127,column:41},end:{line:127,column:42}},loc:{start:{line:127,column:53},end:{line:127,column:68}},line:127},'7':{name:'processResponse',decl:{start:{line:129,column:13},end:{line:129,column:28}},loc:{start:{line:129,column:44},end:{line:141,column:5}},line:129}},branchMap:{'0':{loc:{start:{line:51,column:16},end:{line:51,column:49}},type:'binary-expr',locations:[{start:{line:51,column:16},end:{line:51,column:29}},{start:{line:51,column:33},end:{line:51,column:49}}],line:51},'1':{loc:{start:{line:55,column:2},end:{line:57,column:3}},type:'if',locations:[{start:{line:55,column:2},end:{line:57,column:3}},{start:{line:55,column:2},end:{line:57,column:3}}],line:55},'2':{loc:{start:{line:60,column:2},end:{line:62,column:3}},type:'if',locations:[{start:{line:60,column:2},end:{line:62,column:3}},{start:{line:60,column:2},end:{line:62,column:3}}],line:60},'3':{loc:{start:{line:120,column:24},end:{line:120,column:52}},type:'binary-expr',locations:[{start:{line:120,column:24},end:{line:120,column:43}},{start:{line:120,column:47},end:{line:120,column:52}}],line:120},'4':{loc:{start:{line:121,column:19},end:{line:121,column:44}},type:'binary-expr',locations:[{start:{line:121,column:19},end:{line:121,column:38}},{start:{line:121,column:42},end:{line:121,column:44}}],line:121},'5':{loc:{start:{line:122,column:21},end:{line:122,column:59}},type:'binary-expr',locations:[{start:{line:122,column:21},end:{line:122,column:42}},{start:{line:122,column:46},end:{line:122,column:59}}],line:122},'6':{loc:{start:{line:131,column:6},end:{line:137,column:7}},type:'if',locations:[{start:{line:131,column:6},end:{line:137,column:7}},{start:{line:131,column:6},end:{line:137,column:7}}],line:131},'7':{loc:{start:{line:131,column:10},end:{line:131,column:46}},type:'binary-expr',locations:[{start:{line:131,column:10},end:{line:131,column:16}},{start:{line:131,column:20},end:{line:131,column:46}}],line:131},'8':{loc:{start:{line:139,column:19},end:{line:139,column:43}},type:'cond-expr',locations:[{start:{line:139,column:27},end:{line:139,column:34}},{start:{line:139,column:37},end:{line:139,column:43}}],line:139}},s:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0,'17':0,'18':0,'19':0,'20':0,'21':0,'22':0,'23':0,'24':0,'25':0,'26':0,'27':0,'28':0,'29':0,'30':0,'31':0,'32':0,'33':0,'34':0,'35':0,'36':0,'37':0},f:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0},b:{'0':[0,0],'1':[0,0],'2':[0,0],'3':[0,0],'4':[0,0],'5':[0,0],'6':[0,0],'7':[0,0],'8':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var{LoginManager,AccessToken,GraphRequest,GraphRequestManager}=(++cov_2e3xqkaxni.s[0],require('react-native-fbsdk'));++cov_2e3xqkaxni.s[1];const emptyFunction=()=>{++cov_2e3xqkaxni.f[0];};const mapObject=(++cov_2e3xqkaxni.s[2],require('fbjs/lib/mapObject'));type AuthResponse={userID:string;accessToken:string;expiresIn:number;};type LoginOptions={scope:string};type LoginCallback=(result:{authResponse?:AuthResponse;error?:Error;})=>void;let _authResponse:?AuthResponse=(++cov_2e3xqkaxni.s[3],null);async function loginWithFacebookSDK(options:LoginOptions):Promise<AuthResponse>{++cov_2e3xqkaxni.f[1];const scope=(++cov_2e3xqkaxni.s[4],(++cov_2e3xqkaxni.b[0][0],options.scope)||(++cov_2e3xqkaxni.b[0][1],'public_profile'));const permissions=(++cov_2e3xqkaxni.s[5],scope.split(','));const loginResult=(++cov_2e3xqkaxni.s[6],await LoginManager.logInWithReadPermissions(permissions));++cov_2e3xqkaxni.s[7];if(loginResult.isCancelled){++cov_2e3xqkaxni.b[1][0];++cov_2e3xqkaxni.s[8];throw new Error('Canceled by user');}else{++cov_2e3xqkaxni.b[1][1];}const accessToken=(++cov_2e3xqkaxni.s[9],await AccessToken.getCurrentAccessToken());++cov_2e3xqkaxni.s[10];if(!accessToken){++cov_2e3xqkaxni.b[2][0];++cov_2e3xqkaxni.s[11];throw new Error('No access token');}else{++cov_2e3xqkaxni.b[2][1];}++cov_2e3xqkaxni.s[12];_authResponse={userID:accessToken.userID,// FIXME: RNFBSDK bug: userId -> userID
+accessToken:accessToken.accessToken,expiresIn:Math.round((accessToken.expirationTime-Date.now())/1000)};++cov_2e3xqkaxni.s[13];return _authResponse;}var FacebookSDK=(++cov_2e3xqkaxni.s[14],{init(){++cov_2e3xqkaxni.s[15];// This is needed by Parse
+window.FB=FacebookSDK;},login(callback:LoginCallback,options:LoginOptions){++cov_2e3xqkaxni.s[16];loginWithFacebookSDK(options).then(authResponse=>{++cov_2e3xqkaxni.f[2];++cov_2e3xqkaxni.s[17];return callback({authResponse});},error=>{++cov_2e3xqkaxni.f[3];++cov_2e3xqkaxni.s[18];return callback({error});});},getAuthResponse():?AuthResponse{++cov_2e3xqkaxni.s[19];return _authResponse;},logout(){++cov_2e3xqkaxni.s[20];LoginManager.logOut();},/**
    * Make a API call to Graph server. This is the **real** RESTful API.
    *
    * Except the path, all arguments to this function are optional. So any of
@@ -112,37 +48,8 @@ var FacebookSDK = {
    * param method {String}   the http method
    * param params {Object}   the parameters for the query
    * param cb     {Function} the callback function to handle the response
-   */
-  api: function(path: string, ...args: Array<mixed>) {
-    const argByType = {};
-    args.forEach((arg) => { argByType[typeof arg] = arg; });
-
-    const httpMethod = (argByType['string'] || 'get').toUpperCase();
-    const params = argByType['object'] || {};
-    const callback = argByType['function'] || emptyFunction;
-
-    // FIXME: Move this into RNFBSDK
-    // GraphRequest requires all parameters to be in {string: 'abc'}
-    // or {uri: 'xyz'} format
-    const parameters = mapObject(params, (value) => ({string: value}));
-
-    function processResponse(error, result) {
-      // FIXME: RNFBSDK bug: result is Object on iOS and string on Android
-      if (!error && typeof result === 'string') {
-        try {
-          result = JSON.parse(result);
-        } catch (e) {
-          error = e;
-        }
-      }
-
-      const data = error ? {error} : result;
-      callback(data);
-    }
-
-    const request = new GraphRequest(path, {parameters, httpMethod}, processResponse);
-    new GraphRequestManager().addRequest(request).start();
-  }
-};
-
-module.exports = FacebookSDK;
+   */api:function(path:string,...args:Array<mixed>){++cov_2e3xqkaxni.f[4];const argByType=(++cov_2e3xqkaxni.s[21],{});++cov_2e3xqkaxni.s[22];args.forEach(arg=>{++cov_2e3xqkaxni.f[5];++cov_2e3xqkaxni.s[23];argByType[typeof arg]=arg;});const httpMethod=(++cov_2e3xqkaxni.s[24],((++cov_2e3xqkaxni.b[3][0],argByType['string'])||(++cov_2e3xqkaxni.b[3][1],'get')).toUpperCase());const params=(++cov_2e3xqkaxni.s[25],(++cov_2e3xqkaxni.b[4][0],argByType['object'])||(++cov_2e3xqkaxni.b[4][1],{}));const callback=(++cov_2e3xqkaxni.s[26],(++cov_2e3xqkaxni.b[5][0],argByType['function'])||(++cov_2e3xqkaxni.b[5][1],emptyFunction));// FIXME: Move this into RNFBSDK
+// GraphRequest requires all parameters to be in {string: 'abc'}
+// or {uri: 'xyz'} format
+const parameters=(++cov_2e3xqkaxni.s[27],mapObject(params,value=>{++cov_2e3xqkaxni.f[6];++cov_2e3xqkaxni.s[28];return{string:value};}));function processResponse(error,result){++cov_2e3xqkaxni.f[7];++cov_2e3xqkaxni.s[29];// FIXME: RNFBSDK bug: result is Object on iOS and string on Android
+if((++cov_2e3xqkaxni.b[7][0],!error)&&(++cov_2e3xqkaxni.b[7][1],typeof result==='string')){++cov_2e3xqkaxni.b[6][0];++cov_2e3xqkaxni.s[30];try{++cov_2e3xqkaxni.s[31];result=JSON.parse(result);}catch(e){++cov_2e3xqkaxni.s[32];error=e;}}else{++cov_2e3xqkaxni.b[6][1];}const data=(++cov_2e3xqkaxni.s[33],error?(++cov_2e3xqkaxni.b[8][0],{error}):(++cov_2e3xqkaxni.b[8][1],result));++cov_2e3xqkaxni.s[34];callback(data);}const request=(++cov_2e3xqkaxni.s[35],new GraphRequest(path,{parameters,httpMethod},processResponse));++cov_2e3xqkaxni.s[36];new GraphRequestManager().addRequest(request).start();}});++cov_2e3xqkaxni.s[37];module.exports=FacebookSDK;

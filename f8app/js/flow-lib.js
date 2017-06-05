@@ -20,23 +20,4 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-
-'use strict';
-
-/* eslint no-unused-vars:0 */
-declare var jest: any;
-declare var jasmine: any;
-declare var describe: (name: string, callback: () => void) => void;
-declare var it: (name: string, callback: () => void) => void;
-declare var expect: any;
-
-declare module 'react-native-linear-gradient' {
-  declare var exports: any;
-}
-
-declare module 'react-native-push-notification' {
-  declare var exports: any;
-}
-
-declare var requestAnimationFrame: (callback: () => void) => number;
+ */'use strict';/* eslint no-unused-vars:0 */var cov_2lk0bqd03j=function(){var path='flow-lib.js',hash='7ea4973286e38ede1ecd5383f947656e9ed37912',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'flow-lib.js',statementMap:{},fnMap:{},branchMap:{},s:{},f:{},b:{},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();declare var jest:any;declare var jasmine:any;declare var describe:(name:string,callback:()=>void)=>void;declare var it:(name:string,callback:()=>void)=>void;declare var expect:any;declare module'react-native-linear-gradient'{declare var exports:any;}declare module'react-native-push-notification'{declare var exports:any;}declare var requestAnimationFrame:(callback:()=>void)=>number;

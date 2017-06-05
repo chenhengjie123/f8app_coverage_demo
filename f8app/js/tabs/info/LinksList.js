@@ -20,115 +20,16 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-'use strict';
-
-var F8Colors = require('F8Colors');
-var Image = require('Image');
-var ItemsWithSeparator = require('../../common/ItemsWithSeparator');
-var Linking = require('Linking');
-var React = require('React');
-var Section = require('./Section');
-var StyleSheet = require('StyleSheet');
-var F8Touchable = require('F8Touchable');
-var { Text } = require('F8Text');
-var View = require('View');
-
-class LinksList extends React.Component {
-  props: {
-    title: string;
-    links: Array<{
-      logo?: ?string;
-      title: string;
-      url?: string;
-      onPress?: () => void;
-    }>;
-  };
-
-  render() {
-    let content = this.props.links.map(
-      (link) => <Row link={link} key={link.title} />
-    );
-    return (
-      <Section title={this.props.title}>
+ */'use strict';var cov_3ibsc87iw=function(){var path='tabs/info/LinksList.js',hash='82cbc62f30dfac8b2dc42e339152eefc3d1e0c96',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'tabs/info/LinksList.js',statementMap:{'0':{start:{line:26,column:15},end:{line:26,column:34}},'1':{start:{line:27,column:12},end:{line:27,column:28}},'2':{start:{line:28,column:25},end:{line:28,column:67}},'3':{start:{line:29,column:14},end:{line:29,column:32}},'4':{start:{line:30,column:12},end:{line:30,column:28}},'5':{start:{line:31,column:14},end:{line:31,column:34}},'6':{start:{line:32,column:17},end:{line:32,column:38}},'7':{start:{line:33,column:18},end:{line:33,column:40}},'8':{start:{line:34,column:15},end:{line:34,column:32}},'9':{start:{line:35,column:11},end:{line:35,column:26}},'10':{start:{line:49,column:18},end:{line:51,column:5}},'11':{start:{line:50,column:16},end:{line:50,column:52}},'12':{start:{line:52,column:4},end:{line:58,column:6}},'13':{start:{line:73,column:24},end:{line:73,column:39}},'14':{start:{line:74,column:16},end:{line:74,column:77}},'15':{start:{line:75,column:4},end:{line:85,column:6}},'16':{start:{line:89,column:25},end:{line:89,column:40}},'17':{start:{line:90,column:4},end:{line:92,column:5}},'18':{start:{line:91,column:6},end:{line:91,column:16}},'19':{start:{line:93,column:4},end:{line:95,column:5}},'20':{start:{line:94,column:6},end:{line:94,column:27}},'21':{start:{line:99,column:19},end:{line:99,column:21}},'22':{start:{line:101,column:13},end:{line:132,column:2}},'23':{start:{line:134,column:0},end:{line:134,column:27}}},fnMap:{'0':{name:'(anonymous_0)',decl:{start:{line:48,column:2},end:{line:48,column:3}},loc:{start:{line:48,column:11},end:{line:59,column:3}},line:48},'1':{name:'(anonymous_1)',decl:{start:{line:50,column:6},end:{line:50,column:7}},loc:{start:{line:50,column:16},end:{line:50,column:52}},line:50},'2':{name:'(anonymous_2)',decl:{start:{line:72,column:2},end:{line:72,column:3}},loc:{start:{line:72,column:11},end:{line:86,column:3}},line:72},'3':{name:'(anonymous_3)',decl:{start:{line:88,column:2},end:{line:88,column:3}},loc:{start:{line:88,column:16},end:{line:96,column:3}},line:88}},branchMap:{'0':{loc:{start:{line:74,column:16},end:{line:74,column:77}},type:'binary-expr',locations:[{start:{line:74,column:16},end:{line:74,column:20}},{start:{line:74,column:24},end:{line:74,column:77}}],line:74},'1':{loc:{start:{line:90,column:4},end:{line:92,column:5}},type:'if',locations:[{start:{line:90,column:4},end:{line:92,column:5}},{start:{line:90,column:4},end:{line:92,column:5}}],line:90},'2':{loc:{start:{line:93,column:4},end:{line:95,column:5}},type:'if',locations:[{start:{line:93,column:4},end:{line:95,column:5}},{start:{line:93,column:4},end:{line:95,column:5}}],line:93}},s:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0,'17':0,'18':0,'19':0,'20':0,'21':0,'22':0,'23':0},f:{'0':0,'1':0,'2':0,'3':0},b:{'0':[0,0],'1':[0,0],'2':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var F8Colors=(++cov_3ibsc87iw.s[0],require('F8Colors'));var Image=(++cov_3ibsc87iw.s[1],require('Image'));var ItemsWithSeparator=(++cov_3ibsc87iw.s[2],require('../../common/ItemsWithSeparator'));var Linking=(++cov_3ibsc87iw.s[3],require('Linking'));var React=(++cov_3ibsc87iw.s[4],require('React'));var Section=(++cov_3ibsc87iw.s[5],require('./Section'));var StyleSheet=(++cov_3ibsc87iw.s[6],require('StyleSheet'));var F8Touchable=(++cov_3ibsc87iw.s[7],require('F8Touchable'));var{Text}=(++cov_3ibsc87iw.s[8],require('F8Text'));var View=(++cov_3ibsc87iw.s[9],require('View'));class LinksList extends React.Component{props:{title:string;links:Array<{logo?:?string;title:string;url?:string;onPress?:()=>void;}>;};render(){++cov_3ibsc87iw.f[0];let content=(++cov_3ibsc87iw.s[10],this.props.links.map(link=>{++cov_3ibsc87iw.f[1];++cov_3ibsc87iw.s[11];return<Row link={link}key={link.title}/>;}));++cov_3ibsc87iw.s[12];return<Section title={this.props.title}>
         <ItemsWithSeparator separatorStyle={styles.separator}>
           {content}
         </ItemsWithSeparator>
-      </Section>
-    );
-  }
-}
-
-class Row extends React.Component {
-  props: {
-    link: {
-      logo: ?string;
-      title: string;
-      url?: string;
-      onPress?: () => void;
-    };
-  };
-
-  render() {
-    var {logo, title} = this.props.link;
-    var image = logo && <Image style={styles.picture} source={{uri: logo}} />;
-    return (
-      <F8Touchable onPress={this.handlePress.bind(this)}>
+      </Section>;}}class Row extends React.Component{props:{link:{logo:?string;title:string;url?:string;onPress?:()=>void;}};render(){++cov_3ibsc87iw.f[2];var{logo,title}=(++cov_3ibsc87iw.s[13],this.props.link);var image=(++cov_3ibsc87iw.s[14],(++cov_3ibsc87iw.b[0][0],logo)&&(++cov_3ibsc87iw.b[0][1],<Image style={styles.picture}source={{uri:logo}}/>));++cov_3ibsc87iw.s[15];return<F8Touchable onPress={this.handlePress.bind(this)}>
         <View style={styles.row}>
           {image}
-          <Text style={styles.title} numberOfLines={2}>
+          <Text style={styles.title}numberOfLines={2}>
             {title}
           </Text>
-          <Image source={require('../../common/img/disclosure.png')} />
+          <Image source={require('../../common/img/disclosure.png')}/>
         </View>
-      </F8Touchable>
-    );
-  }
-
-  handlePress() {
-    var {url, onPress} = this.props.link;
-    if (onPress) {
-      onPress();
-    }
-    if (url) {
-      Linking.openURL(url);
-    }
-  }
-}
-
-const IMAGE_SIZE = 44;
-
-var styles = StyleSheet.create({
-  separator: {
-    marginHorizontal: 20,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: 'white',
-    height: 60,
-  },
-  picture: {
-    width: IMAGE_SIZE,
-    height: IMAGE_SIZE,
-    borderRadius: IMAGE_SIZE / 2,
-    marginRight: 16,
-  },
-  title: {
-    fontSize: 17,
-    color: F8Colors.darkText,
-    flex: 1,
-  },
-  button: {
-    padding: 10,
-  },
-  like: {
-    letterSpacing: 1,
-    color: F8Colors.actionText,
-    fontSize: 12,
-  },
-});
-
-module.exports = LinksList;
+      </F8Touchable>;}handlePress(){++cov_3ibsc87iw.f[3];var{url,onPress}=(++cov_3ibsc87iw.s[16],this.props.link);++cov_3ibsc87iw.s[17];if(onPress){++cov_3ibsc87iw.b[1][0];++cov_3ibsc87iw.s[18];onPress();}else{++cov_3ibsc87iw.b[1][1];}++cov_3ibsc87iw.s[19];if(url){++cov_3ibsc87iw.b[2][0];++cov_3ibsc87iw.s[20];Linking.openURL(url);}else{++cov_3ibsc87iw.b[2][1];}}}const IMAGE_SIZE=(++cov_3ibsc87iw.s[21],44);var styles=(++cov_3ibsc87iw.s[22],StyleSheet.create({separator:{marginHorizontal:20},row:{flexDirection:'row',alignItems:'center',paddingVertical:10,paddingHorizontal:20,backgroundColor:'white',height:60},picture:{width:IMAGE_SIZE,height:IMAGE_SIZE,borderRadius:IMAGE_SIZE/2,marginRight:16},title:{fontSize:17,color:F8Colors.darkText,flex:1},button:{padding:10},like:{letterSpacing:1,color:F8Colors.actionText,fontSize:12}}));++cov_3ibsc87iw.s[23];module.exports=LinksList;

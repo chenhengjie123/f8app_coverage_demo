@@ -20,14 +20,4 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- */
-
-'use strict';
-
-var Platform = require('Platform');
-
-if (Platform.OS === 'ios') {
-  module.exports = require('./img/x-white.png');
-} else {
-  module.exports = require('./img/back_white.png');
-}
+ */'use strict';var cov_1exxdyzdrk=function(){var path='common/BackButtonIcon.js',hash='72b69525c9e6e7dc3852fbd5afdc1e0d3838f1ac',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'common/BackButtonIcon.js',statementMap:{'0':{start:{line:27,column:15},end:{line:27,column:34}},'1':{start:{line:29,column:0},end:{line:33,column:1}},'2':{start:{line:30,column:2},end:{line:30,column:48}},'3':{start:{line:32,column:2},end:{line:32,column:51}}},fnMap:{},branchMap:{'0':{loc:{start:{line:29,column:0},end:{line:33,column:1}},type:'if',locations:[{start:{line:29,column:0},end:{line:33,column:1}},{start:{line:29,column:0},end:{line:33,column:1}}],line:29}},s:{'0':0,'1':0,'2':0,'3':0},f:{},b:{'0':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var Platform=(++cov_1exxdyzdrk.s[0],require('Platform'));++cov_1exxdyzdrk.s[1];if(Platform.OS==='ios'){++cov_1exxdyzdrk.b[0][0];++cov_1exxdyzdrk.s[2];module.exports=require('./img/x-white.png');}else{++cov_1exxdyzdrk.b[0][1];++cov_1exxdyzdrk.s[3];module.exports=require('./img/back_white.png');}

@@ -21,71 +21,8 @@
  *
  * @providesModule F8PageControl
  * @flow
- */
-'use strict';
-
-var React = require('React');
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-
-var PropTypes = React.PropTypes;
-
-var F8PageControl = React.createClass({
-  propTypes: {
-    style: View.propTypes.style,
-    count: PropTypes.number.isRequired,
-    selectedIndex: PropTypes.number.isRequired,
-  },
-
-  render: function() {
-    var images = [];
-    for (var i = 0; i < this.props.count; i++) {
-      var isSelected = this.props.selectedIndex === i;
-      images.push(<Circle key={i} isSelected={isSelected} />);
-    }
-    return (
-      <View style={[styles.container, this.props.style]}>
+ */'use strict';var cov_16jf8u433e=function(){var path='common/F8PageControl.js',hash='b077833e459bdaba1b1c06b19b8fbd3e102fccb0',global=new Function('return this')(),gcv='__coverage__',coverageData={path:'common/F8PageControl.js',statementMap:{'0':{start:{line:27,column:12},end:{line:27,column:28}},'1':{start:{line:28,column:17},end:{line:28,column:38}},'2':{start:{line:29,column:11},end:{line:29,column:26}},'3':{start:{line:31,column:16},end:{line:31,column:31}},'4':{start:{line:33,column:20},end:{line:54,column:2}},'5':{start:{line:41,column:17},end:{line:41,column:19}},'6':{start:{line:42,column:4},end:{line:45,column:5}},'7':{start:{line:43,column:23},end:{line:43,column:53}},'8':{start:{line:44,column:6},end:{line:44,column:62}},'9':{start:{line:46,column:4},end:{line:52,column:6}},'10':{start:{line:56,column:13},end:{line:61,column:2}},'11':{start:{line:58,column:21},end:{line:58,column:71}},'12':{start:{line:59,column:4},end:{line:59,column:56}},'13':{start:{line:63,column:18},end:{line:63,column:19}},'14':{start:{line:65,column:13},end:{line:85,column:2}},'15':{start:{line:87,column:0},end:{line:87,column:31}},'16':{start:{line:88,column:0},end:{line:91,column:2}},'17':{start:{line:89,column:2},end:{line:89,column:74}},'18':{start:{line:89,column:27},end:{line:89,column:72}},'19':{start:{line:90,column:2},end:{line:90,column:74}},'20':{start:{line:90,column:27},end:{line:90,column:72}}},fnMap:{'0':{name:'(anonymous_0)',decl:{start:{line:40,column:10},end:{line:40,column:11}},loc:{start:{line:40,column:21},end:{line:53,column:3}},line:40},'1':{name:'(anonymous_1)',decl:{start:{line:57,column:10},end:{line:57,column:11}},loc:{start:{line:57,column:21},end:{line:60,column:3}},line:57},'2':{name:'(anonymous_2)',decl:{start:{line:88,column:27},end:{line:88,column:28}},loc:{start:{line:88,column:39},end:{line:91,column:1}},line:88},'3':{name:'(anonymous_3)',decl:{start:{line:89,column:21},end:{line:89,column:22}},loc:{start:{line:89,column:27},end:{line:89,column:72}},line:89},'4':{name:'(anonymous_4)',decl:{start:{line:90,column:21},end:{line:90,column:22}},loc:{start:{line:90,column:27},end:{line:90,column:72}},line:90}},branchMap:{'0':{loc:{start:{line:58,column:21},end:{line:58,column:71}},type:'cond-expr',locations:[{start:{line:58,column:45},end:{line:58,column:56}},{start:{line:58,column:59},end:{line:58,column:71}}],line:58}},s:{'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0,'13':0,'14':0,'15':0,'16':0,'17':0,'18':0,'19':0,'20':0},f:{'0':0,'1':0,'2':0,'3':0,'4':0},b:{'0':[0,0]},_coverageSchema:'332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'},coverage=global[gcv]||(global[gcv]={});if(coverage[path]&&coverage[path].hash===hash){return coverage[path];}coverageData.hash=hash;return coverage[path]=coverageData;}();var React=(++cov_16jf8u433e.s[0],require('React'));var StyleSheet=(++cov_16jf8u433e.s[1],require('StyleSheet'));var View=(++cov_16jf8u433e.s[2],require('View'));var PropTypes=(++cov_16jf8u433e.s[3],React.PropTypes);var F8PageControl=(++cov_16jf8u433e.s[4],React.createClass({propTypes:{style:View.propTypes.style,count:PropTypes.number.isRequired,selectedIndex:PropTypes.number.isRequired},render:function(){++cov_16jf8u433e.f[0];var images=(++cov_16jf8u433e.s[5],[]);++cov_16jf8u433e.s[6];for(var i=0;i<this.props.count;i++){var isSelected=(++cov_16jf8u433e.s[7],this.props.selectedIndex===i);++cov_16jf8u433e.s[8];images.push(<Circle key={i}isSelected={isSelected}/>);}++cov_16jf8u433e.s[9];return<View style={[styles.container,this.props.style]}>
         <View style={styles.innerContainer}>
           {images}
         </View>
-      </View>
-    );
-  }
-});
-
-var Circle = React.createClass({
-  render: function() {
-    var extraStyle = this.props.isSelected ? styles.full : styles.empty;
-    return <View style={[styles.circle, extraStyle]} />;
-  }
-});
-
-var CIRCLE_SIZE = 4;
-
-var styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  innerContainer: {
-    flexDirection: 'row',
-  },
-  circle: {
-    margin: 2,
-    width: CIRCLE_SIZE,
-    height: CIRCLE_SIZE,
-    borderRadius: CIRCLE_SIZE / 2,
-  },
-  full: {
-    backgroundColor: '#fff',
-  },
-  empty: {
-    backgroundColor: '#fff5',
-  },
-});
-
-module.exports = F8PageControl;
-module.exports.__cards__ = (define) => {
-  define('Simple 2', () => <F8PageControl count={2} selectedIndex={0} />);
-  define('Simple 5', () => <F8PageControl count={5} selectedIndex={2} />);
-};
+      </View>;}}));var Circle=(++cov_16jf8u433e.s[10],React.createClass({render:function(){++cov_16jf8u433e.f[1];var extraStyle=(++cov_16jf8u433e.s[11],this.props.isSelected?(++cov_16jf8u433e.b[0][0],styles.full):(++cov_16jf8u433e.b[0][1],styles.empty));++cov_16jf8u433e.s[12];return<View style={[styles.circle,extraStyle]}/>;}}));var CIRCLE_SIZE=(++cov_16jf8u433e.s[13],4);var styles=(++cov_16jf8u433e.s[14],StyleSheet.create({container:{alignItems:'center',justifyContent:'center'},innerContainer:{flexDirection:'row'},circle:{margin:2,width:CIRCLE_SIZE,height:CIRCLE_SIZE,borderRadius:CIRCLE_SIZE/2},full:{backgroundColor:'#fff'},empty:{backgroundColor:'#fff5'}}));++cov_16jf8u433e.s[15];module.exports=F8PageControl;++cov_16jf8u433e.s[16];module.exports.__cards__=define=>{++cov_16jf8u433e.f[2];++cov_16jf8u433e.s[17];define('Simple 2',()=>{++cov_16jf8u433e.f[3];++cov_16jf8u433e.s[18];return<F8PageControl count={2}selectedIndex={0}/>;});++cov_16jf8u433e.s[19];define('Simple 5',()=>{++cov_16jf8u433e.f[4];++cov_16jf8u433e.s[20];return<F8PageControl count={5}selectedIndex={2}/>;});};
