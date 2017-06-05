@@ -46,7 +46,7 @@ Error: ENOENT: no such file or directory, open 'actions/installation.js'
 
 +       // 临时修复 `no such file or directory` 报错问题
 +       var path = require('path');
-+       fileCoverage.path = path.resolve(__dirname, '..', '..', '..', fileCoverage.path);
++       fileCoverage.path = path.resolve(__dirname, '..', '..', '..', 'js', fileCoverage.path);
         
         utils.addDerivedInfoForFile(fileCoverage);
         report.writeDetailPage(res, outputNode, fileCoverage);
