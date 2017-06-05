@@ -84,4 +84,18 @@ global.LOG = (...args) => {
   return args[args.length - 1];
 };
 
+// post window.__coverage__ to server every 2 seconds
+setInterval(function() {
+  fetch('http://localhost:8889/coverage/client', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(window.__coverage__)
+  })
+  .then(function() {
+    console.log("success!")
+  })
+}, 2000);
+
 module.exports = setup;
